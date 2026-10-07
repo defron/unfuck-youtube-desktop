@@ -1,5 +1,5 @@
 # unfuck-youtube-desktop
-Various hack from me trying to unfuck youtube's UI
+Various hacks from me trying to unfuck youtube's UI
 
 A lot of stuff very much so WIP please help and make better if you can!
 
