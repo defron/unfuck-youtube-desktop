@@ -11,4 +11,4 @@ Structure:
 * screenshots: holds screenshots of some of the changes (duh)
 
 
-![stylus changes](screenshots/desktop-youtube.png)
+![stylus changes](screenshots/desktop-youtube.webp)
