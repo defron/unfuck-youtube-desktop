@@ -15,7 +15,8 @@
 
 ytd-watch-flexy.style-scope {
   /* change this based on your prefs for how big you want your player to be */
-  --ytd-watch-flexy-space-below-player: 50px;
+  /* note: it may mess with player controls not fitting full video width*/
+  --ytd-watch-flexy-space-below-player: 75px;
 }
 
 
