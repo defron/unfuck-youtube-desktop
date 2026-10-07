@@ -15,6 +15,7 @@
 ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][fixed-panel-watch-next] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][side-rail-dismissible-panels] #secondary.ytd-watch-flexy {
   position: static;
   max-width: 100vw;
+  margin-left: 20px;
   margin-right: 400px;
   flex-direction: column;
 }
@@ -34,7 +35,7 @@ ytd-watch-flexy[is-two-columns_][is-extra-wide-video_]:not([fixed-panels]) #prim
 
 #items.ytd-watch-next-secondary-results-renderer {
   /*display: none;*/
-  height: 100px;
+  height: 0px;
 }
 
 ytd-item-section-renderer[lockup-container-type="2"][is-grid-view-enabled] #contents.ytd-item-section-renderer {
