@@ -1,0 +1,38 @@
+/* ==UserStyle==
+@name         unf--kyoutube
+@version      20261007.05.26
+@namespace    defron.org
+@description  WIP making youtube on desktop not trash again
+@author       defron
+@license      MPL-2.0
+==/UserStyle== */
+
+@-moz-document url-prefix("https://www.youtube.com/watch") {
+#columns.ytd-watch-flexy {
+  flex-direction: column;
+}
+
+ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][fixed-panel-watch-next] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][side-rail-dismissible-panels] #secondary.ytd-watch-flexy {
+  position: static;
+  max-width: 100vw;
+  flex-direction: column;
+}
+
+ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-default-panels][fixed-panel-watch-next] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-panel-expanded] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][fixed-panel-watch-next][fixed-default-panels][fixed-panel-watch-next] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][fixed-panel-watch-next][fixed-panel-expanded] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][side-rail-dismissible-panels][fixed-default-panels][fixed-panel-watch-next] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][side-rail-dismissible-panels][fixed-panel-expanded] #secondary.ytd-watch-flexy {
+  padding-right: 0;
+}
+
+ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary-inner.ytd-watch-flexy, ytd-watch-flexy[split-scroll][fixed-panel-watch-next] #secondary-inner.ytd-watch-flexy, ytd-watch-flexy[split-scroll][side-rail-dismissible-panels] #secondary-inner.ytd-watch-flexy {
+  width: 100vw;
+}
+
+ytd-watch-flexy[is-two-columns_][is-extra-wide-video_]:not([fixed-panels]) #primary.ytd-watch-flexy, ytd-watch-flexy[is-two-columns_][is-four-three-to-sixteen-nine-video_]:not([fixed-panels]) #primary.ytd-watch-flexy {
+  max-width: 100vw;
+}
+
+/* remove this if you would rather have the video suggestions below the video instead of comments */
+/* TODO: get both working */
+#items.ytd-watch-next-secondary-results-renderer {
+  display: none;
+}
+}

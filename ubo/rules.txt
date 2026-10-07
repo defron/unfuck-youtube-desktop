@@ -1,0 +1,52 @@
+www.youtube.com##+js(nano-stb, resolve(1), *, 0.001)
+
+www.youtube.com##+js(nano-stb, resolve(1), 5000, 0.001)
+
+youtube.com##+js(set, yt.config_.EXPERIMENT_FLAGS.web_enable_ab_rsp_cl, false)
+
+www.youtube.com##div[class^='YtInlinePlayerControlsTopLeftControls']
+
+www.youtube.com##div[class^='ytInlinePlayerControlsTopLeftControls']
+
+! Changing the amount of videos per row
+youtube.com##ytd-rich-grid-renderer:style(--ytd-rich-grid-items-per-row: 5 !important;)
+youtube.com##ytd-rich-grid-renderer:style(--ytd-rich-grid-posts-per-row: 5 !important;)
+! Using full page width for video grids
+youtube.com##ytd-two-column-browse-results-renderer.grid-6-columns:style(width: 100% !important;)
+youtube.com##ytd-two-column-browse-results-renderer.grid:not(.grid-disabled):style(max-width: 100% !important;)
+
+! (2/11) YouTube Home Short Section 7 Videos Per Row Fix / YouTube Fix & Customization
+youtube.com##ytd-rich-grid-renderer, html:style(--ytd-rich-grid-slim-items-per-row: 7 !important;)
+youtube.com##ytd-rich-grid-renderer, html:style(--ytd-rich-grid-game-cards-per-row: 7 !important;)
+youtube.com##+js(set-attr, ytd-rich-shelf-renderer, is-show-more-hidden)
+youtube.com##ytd-rich-item-renderer, html:style(--ytd-rich-grid-items-per-row: 7 !important;)
+!youtube.com##+js(ra, hidden, ytd-rich-item-renderer, stay)
+
+youtube.com##ytd-rich-item-renderer, html:style(--ytd-rich-grid-items-per-row: 5 !important;)
+
+
+! works on my machine, may need tweaks, only tested in firefox
+! please feel free to comment additional improvements
+! make the new youtube ui make sense on a large desktop screen
+! bring back 4-by-3 grid layout for the recommended videos
+youtube.com##.ytp-fullscreen-grid-stills-container:style(grid-template-columns: repeat(4,1fr) !important; height: calc(100% - 48px) !important;)
+youtube.com##.ytp-modern-videowall-still:style(display: block !important;)
+youtube.com##.ytp-modern-videowall-still:hover .ytp-modern-videowall-still-info:style(opacity: 0.8 !important;)
+youtube.com##.ytp-modern-videowall-still-info:style(position: absolute !important; bottom: 0; left: 0; opacity: 0.6; width: 100%; background-color: black !important;)
+youtube.com##.ytp-modern-videowall-still-info:hover:style(opacity: 0.8 !important;)
+
+
+! the below may be a bit broken right now
+! make the bottom controls on the video player not ginormous (theater/big mode)
+youtube.com##.ytp-chrome-bottom, html:style(--yt-delhi-big-mode-bottom-controls-height: 48px !important;)
+youtube.com##.ytp-big-mode .ytp-volume-slider:style(min-height: 36px !important;)
+youtube.com##.ytp-chrome-bottom, html:style( --yt-delhi-big-mode-pill-top-height: 4px !important;)
+youtube.com##.ytp-chrome-bottom, html:style( --yt-delhi-big-mode-pill-height: 36px !important;)
+youtube.com##.ytp-chrome-bottom, html:style( --yt-delhi-pill-top-height: 4px !important)
+youtube.com##.ytp-play-button.ytp-button:style(width: 42px !important; height: 42px !important; margin-top: 0px !important;)
+youtube.com##.ytp-play-button.ytp-button:style(padding-inline: 1px !important; padding-block: 1px !important;)
+youtube.com##.ytp-big-mode .ytp-chapter-title-chevron:style(bottom: -10px !important;)
+
+! make the bottom controls on the video player not ginormous 
+youtube.com##.ytp-chrome-bottom, html:style(--yt-delhi-bottom-controls-height: 36px !important;)
+youtube.com##.ytp-chrome-bottom, html:style(--yt-delhi-pill-height: 31px !important)
