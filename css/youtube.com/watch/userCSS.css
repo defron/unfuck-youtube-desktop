@@ -11,6 +11,13 @@
 #columns.ytd-watch-flexy {
   flex-direction: column;
 }
+    
+
+ytd-watch-flexy.style-scope {
+  /* change this based on your prefs for how big you want your player to be */
+  --ytd-watch-flexy-space-below-player: 50px;
+}
+
 
 ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][fixed-panel-watch-next] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][side-rail-dismissible-panels] #secondary.ytd-watch-flexy {
   position: static;
