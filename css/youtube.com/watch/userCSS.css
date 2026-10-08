@@ -24,6 +24,10 @@
     #panels.ytd-watch-flexy {
         flex-direction: column;
     }
+    /* add a little padding above the description/comments */
+    #secondary.ytd-watch-flexy {
+        padding-top: 1rem !important;
+    }
     /* removes useless crap from the description, leaving just the actual description*/
     #items.style-scope.ytd-structured-description-content-renderer > :not(ytd-expandable-video-description-body-renderer) {
         display: none;
