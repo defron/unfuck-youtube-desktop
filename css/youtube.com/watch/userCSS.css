@@ -7,56 +7,84 @@
 @license      MPL-2.0
 ==/UserStyle== */
 
-@-moz-document url-prefix("https://www.youtube.com/watch") {
-#columns.ytd-watch-flexy {
-  flex-direction: column;
-}
-    
+@-moz-document url-prefix("https://www.youtube.com/") {
+    /* make videos on top of description/comments */
+    #columns.ytd-watch-flexy {
+        flex-direction: column;
+    }
 
-ytd-watch-flexy.style-scope {
-  /* change this based on your prefs for how big you want your player to be */
-  /* note: it may mess with player controls not fitting full video width*/
-  --ytd-watch-flexy-space-below-player: 75px;
-}
+    /* change this based on your prefs for how big you want your player to be */
+    /* note: it may mess with player controls not fitting full video width*/
+    ytd-watch-flexy.style-scope {
+        --ytd-watch-flexy-space-below-player: 75px !important;
+    }
 
+    /* TODO: does this need to be column-reverse? seems to sometimes */
+    /* put description above comments */
+    #panels.ytd-watch-flexy {
+        flex-direction: column;
+    }
+    /* removes useless crap from the description, leaving just the actual description*/
+    #items.style-scope.ytd-structured-description-content-renderer > :not(ytd-expandable-video-description-body-renderer) {
+        display: none;
+    }
+    /* keep comments visible when showing description */
+    .style-scope.ytd-watch-flexy[visibility="ENGAGEMENT_PANEL_VISIBILITY_HIDDEN"][target-id="engagement-panel-comments-section"] {
+        display: block;
+    }
+    /* hide the X for closing the comments */
+    #visibility-button.ytd-engagement-panel-title-header-renderer {
+        display: none;
+    }
+    /* don't trap scrolling in the description */
+    ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary-inner.ytd-watch-flexy, ytd-watch-flexy[split-scroll][fixed-panel-watch-next] #secondary-inner.ytd-watch-flexy, ytd-watch-flexy[split-scroll][side-rail-dismissible-panels] #secondary-inner.ytd-watch-flexy {
+        overscroll-behavior: auto;
+    }
+    /* don't trap scrolling in the comments */
+    ytd-item-section-renderer[static-comments-header] #contents.ytd-item-section-renderer {
+        overscroll-behavior: auto;
+    }
 
-ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][fixed-panel-watch-next] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][side-rail-dismissible-panels] #secondary.ytd-watch-flexy {
-  position: static;
-  max-width: 100vw;
-  margin-left: 20px;
-  margin-right: 400px;
-  flex-direction: column;
-}
+    /* make the description and comments re-enter normal DOM flow and leave room on the right side for recommended videos */
+    ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][fixed-panel-watch-next] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][side-rail-dismissible-panels] #secondary.ytd-watch-flexy {
+        position: static;
+        max-width: 100vw;
+        margin-left: 20px;
+        margin-right: 400px;
+        flex-direction: column;
+    }
 
-ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-default-panels][fixed-panel-watch-next] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-panel-expanded] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][fixed-panel-watch-next][fixed-default-panels][fixed-panel-watch-next] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][fixed-panel-watch-next][fixed-panel-expanded] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][side-rail-dismissible-panels][fixed-default-panels][fixed-panel-watch-next] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][side-rail-dismissible-panels][fixed-panel-expanded] #secondary.ytd-watch-flexy {
-  padding-right: 0;
-}
+    /* Gets rid of some unnecessary padding on to the right of the comments */
+    ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-default-panels][fixed-panel-watch-next] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-panel-expanded] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][fixed-panel-watch-next][fixed-default-panels][fixed-panel-watch-next] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][fixed-panel-watch-next][fixed-panel-expanded] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][side-rail-dismissible-panels][fixed-default-panels][fixed-panel-watch-next] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][side-rail-dismissible-panels][fixed-panel-expanded] #secondary.ytd-watch-flexy {
+        padding-right: 0;
+    }
 
-ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary-inner.ytd-watch-flexy, ytd-watch-flexy[split-scroll][fixed-panel-watch-next] #secondary-inner.ytd-watch-flexy, ytd-watch-flexy[split-scroll][side-rail-dismissible-panels] #secondary-inner.ytd-watch-flexy {
-  width: 100%;
-}
+    /* let comments/description take up all available space */
+    ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded] #secondary-inner.ytd-watch-flexy, ytd-watch-flexy[split-scroll][fixed-panel-watch-next] #secondary-inner.ytd-watch-flexy, ytd-watch-flexy[split-scroll][side-rail-dismissible-panels] #secondary-inner.ytd-watch-flexy {
+        width: 100%;
+    }
 
-ytd-watch-flexy[is-two-columns_][is-extra-wide-video_]:not([fixed-panels]) #primary.ytd-watch-flexy, ytd-watch-flexy[is-two-columns_][is-four-three-to-sixteen-nine-video_]:not([fixed-panels]) #primary.ytd-watch-flexy {
-  max-width: 100vw;
-}
+    /* recreates theater mode, and makes it the default (TODO: make a non-theater-mode style?) */
+    ytd-watch-flexy[is-two-columns_][is-extra-wide-video_]:not([fixed-panels]) #primary.ytd-watch-flexy, ytd-watch-flexy[is-two-columns_][is-four-three-to-sixteen-nine-video_]:not([fixed-panels]) #primary.ytd-watch-flexy {
+        max-width: 100vw;
+    }
 
-
-#items.ytd-watch-next-secondary-results-renderer {
-  /*display: none;*/
-  height: 0px;
-}
-
-ytd-item-section-renderer[lockup-container-type="2"][is-grid-view-enabled] #contents.ytd-item-section-renderer {
-  grid-template-columns: 1fr;
-}
-
-#related {
-  max-width: 350px;
-  position: absolute;
-  right: 0px;
-}
-#contents .ytd-item-section-renderer.lockup.ytLockupViewModelWrapper {
-  max-width: 350px;
-}
-
+    /* hack to allow video comments to be right below the video by not giving the video recommendations any height */
+    #items.ytd-watch-next-secondary-results-renderer {
+        height: 0px;
+    }
+    /* single-column of video recommendations */
+    ytd-item-section-renderer[lockup-container-type="2"][is-grid-view-enabled] #contents.ytd-item-section-renderer {
+        grid-template-columns: 1fr;
+    }
+    /* push the video recommendation thumbnails to hte right side */
+    #related {
+        max-width: 350px;
+        position: absolute;
+        right: 0px;
+    }
+    /* keep the video recommendation thumbnails from being huge */
+    #contents .ytd-item-section-renderer.lockup.ytLockupViewModelWrapper {
+        max-width: 350px;
+    }
 }
