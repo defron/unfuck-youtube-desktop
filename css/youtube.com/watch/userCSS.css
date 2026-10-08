@@ -50,13 +50,8 @@
         position: static;
         max-width: 100vw;
         margin-left: 20px;
-        margin-right: 400px;
+        margin-right: 380px;
         flex-direction: column;
-    }
-
-    /* Gets rid of some unnecessary padding on to the right of the comments */
-    ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-default-panels][fixed-panel-watch-next] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll]:not([fixed-panel-watch-next])[fixed-panel-expanded][fixed-panel-expanded] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][fixed-panel-watch-next][fixed-default-panels][fixed-panel-watch-next] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][fixed-panel-watch-next][fixed-panel-expanded] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][side-rail-dismissible-panels][fixed-default-panels][fixed-panel-watch-next] #secondary.ytd-watch-flexy, ytd-watch-flexy[split-scroll][side-rail-dismissible-panels][fixed-panel-expanded] #secondary.ytd-watch-flexy {
-        padding-right: 0;
     }
 
     /* let comments/description take up all available space */
