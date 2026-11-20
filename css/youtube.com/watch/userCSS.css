@@ -79,6 +79,7 @@
     /* push the video recommendation thumbnails to hte right side */
     #related {
         max-width: 350px;
+        width: 100%;
         position: absolute;
         right: 0px;
     }
